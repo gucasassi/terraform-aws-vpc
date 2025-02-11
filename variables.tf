@@ -3,7 +3,7 @@
 ################################################################################################################
 
 variable "name" {
-  description = "A unique name used as an identifier for all resources created by this module."
+  description = "The name of the VPC."
   type        = string
 }
 

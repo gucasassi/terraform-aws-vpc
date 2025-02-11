@@ -38,7 +38,7 @@ No modules.
 | <a name="input_enable_dns_support"></a> [enable\_dns\_support](#input\_enable\_dns\_support) | Set to true to enable DNS support within the VPC. | `bool` | `true` | no |
 | <a name="input_extra_tags"></a> [extra\_tags](#input\_extra\_tags) | A map of extra tags to add to all resources created by the module. | `map(string)` | `{}` | no |
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | Set to true to assign public IP addresses to instances launched within the subnet. Defaults to `false`. | `bool` | `false` | no |
-| <a name="input_name"></a> [name](#input\_name) | A unique name used as an identifier for all resources created by this module. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the VPC. | `string` | n/a | yes |
 | <a name="input_public_subnet_suffix"></a> [public\_subnet\_suffix](#input\_public\_subnet\_suffix) | A suffix to append to the names of the public subnets. | `string` | `"public"` | no |
 | <a name="input_public_subnets"></a> [public\_subnets](#input\_public\_subnets) | A list of CIDR blocks for the public subnets to be created inside the VPC. | `list(string)` | <pre>[<br/>  "10.0.0.0/22",<br/>  "10.0.4.0/22"<br/>]</pre> | no |
 
