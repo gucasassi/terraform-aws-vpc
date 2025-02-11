@@ -9,6 +9,13 @@ on:
     branches:
       - main
 
+# Define the permissions for the workflow.
+# Note: The workflow needs to have write permissions to the repository to create releases.
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 # Define the jobs that will run.
 jobs:
   release:
