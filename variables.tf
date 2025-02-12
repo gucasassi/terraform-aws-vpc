@@ -47,6 +47,28 @@ variable "map_public_ip_on_launch" {
   default     = false
 }
 
+variable "private_subnets" {
+  description = "A list of CIDR blocks for the private subnets to be created inside the VPC."
+  type        = list(string)
+  default     = []
+}
+
+variable "private_subnet_suffix" {
+  description = "A suffix to append to the names of the private subnets."
+  type        = string
+  default     = "private"
+}
+
+################################################################################################################
+###############################              NAT-GATEWAY               #########################################
+################################################################################################################
+
+variable "single_nat" {
+  description = "Provision a single NAT Gateway for all private subnets. Defaults to `true`."
+  type        = bool
+  default     = true
+}
+
 ################################################################################################################
 ###############################                 TAGS                   #########################################
 ################################################################################################################
