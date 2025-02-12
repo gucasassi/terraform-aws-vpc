@@ -5,28 +5,56 @@
     [
       "@semantic-release/commit-analyzer",
       {
-        "preset": "conventionalcommits"
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
+          { "type": "docs", "release": "patch" },
+          { "type": "perf", "release": "patch" },
+          { "type": "refactor", "release": "patch" },
+          { "type": "chore", "release": false }
+        ],
+        "parserOpts": {
+          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+        }
       }
     ],
     [
       "@semantic-release/release-notes-generator",
       {
-        "preset": "conventionalcommits"
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "successComment": "This ${issue.pull_request ? 'PR is included' : 'issue has been resolved'} in version ${nextRelease.version} :tada:",
-        "labels": false,
-        "releasedLabels": false
+        "preset": "conventionalcommits",
+        "writerOpts": {
+          "groupBy": "type",
+          "commitGroupsSort": "title",
+          "commitsSort": ["scope", "subject"],
+          "types": [
+            { "type": "feat", "section": "🚀 Features" },
+            { "type": "fix", "section": "🐛 Bug Fixes" },
+            { "type": "docs", "section": "📖 Documentation" },
+            { "type": "chore", "hidden": true },
+            { "type": "refactor", "section": "🛠️ Code Refactoring" },
+            { "type": "perf", "section": "⚡ Performance Improvements" },
+            { "type": "test", "section": "✅ Tests" },
+            { "type": "build", "section": "🔧 Build System" },
+            { "type": "ci", "section": "🔄 Continuous Integration" },
+            { "type": "style", "hidden": true }
+          ]
+        }
       }
     ],
     [
       "@semantic-release/changelog",
       {
         "changelogFile": "CHANGELOG.md",
-        "changelogTitle": "# Changelog\n\nAll changes to this project will be documented in this file."
+        "changelogTitle": "# 📜 Changelog\n\nAll notable changes to this project will be documented in this file.\n"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "successComment": "This ${issue.pull_request ? 'PR is included' : 'issue has been resolved'} in version ${nextRelease.version} 🎉",
+        "labels": false,
+        "releasedLabels": false
       }
     ],
     [
